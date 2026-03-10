@@ -65,13 +65,15 @@ export class LegalDocsClient {
 
   async getFullText(eclis: string[]): Promise<FullTextDocument[]> {
     try {
-      const response = await this.client.post<FullTextDocument[]>(
+      const response = await this.client.post<FullTextDocument[] | FullTextDocument>(
         "/network/text",
         {
           ecli: eclis,
         },
       );
-      return response.data;
+      // Ensure response is always an array
+      const data = Array.isArray(response.data) ? response.data : [response.data];
+      return data;
     } catch (error: any) {
       throw new Error(`Failed to fetch documents: ${error.message}`);
     }
