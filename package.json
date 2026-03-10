@@ -23,7 +23,7 @@
     "client",
     "typescript"
   ],
-  "author": "",
+  "author": "BISS-UM <biss-devs@maastrichtuniversity.nl>",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.13.6"
@@ -33,10 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/legal-docs-client.git"
+    "url": "https://github.com/MaastrichtU-BISS/legal-docs-client.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/legal-docs-client/issues"
+    "url": "https://github.com/MaastrichtU-BISS/legal-docs-client/issues"
   },
-  "homepage": "https://github.com/yourusername/legal-docs-client#readme"
+  "homepage": "https://github.com/MaastrichtU-BISS/legal-docs-client#readme"
 }
