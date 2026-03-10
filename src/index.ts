@@ -13,4 +13,4 @@ export type {
   SearchSubmitParams,
 } from "./types";
 
-export { DataSource, DocType, DUTCH_COURT_INSTANCES } from "./types";
+export { DataSource, DocType, INSTANCES_OPTIONS, DOMAINS_OPTIONS } from "./types";

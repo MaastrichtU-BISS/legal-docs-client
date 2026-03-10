@@ -106,11 +106,7 @@ export interface LegalDocsClientConfig {
   headers?: Record<string, string>;
 }
 
-/**
- * Hierarchical structure of Dutch court instances
- * Can be used as default options or reference
- */
-export const DUTCH_COURT_INSTANCES: InstancesOptions[] = [
+export const INSTANCES_OPTIONS: InstancesOptions[] = [
   {
     name: 'Hoge Raad',
   },
@@ -168,6 +164,55 @@ export const DUTCH_COURT_INSTANCES: InstancesOptions[] = [
       { name: 'Gerecht in eerste aanleg van Bonaire, Sint Eustatius en Saba' },
       { name: 'Gerecht in eerste aanleg van Curaçao' },
       { name: 'Gerecht in eerste aanleg van Sint Maarten' },
+    ],
+  },
+];
+
+
+export const DOMAINS_OPTIONS: InstancesOptions[] = [
+  {
+    name: 'Bestuursrecht',
+    children: [
+      { name: 'Ambtenarenrecht' },
+      { name: 'Belastingrecht' },
+      { name: 'Bestuursprocesrecht' },
+      { name: 'Bestuursstrafrecht' },
+      { name: 'Europees bestuursrecht' },
+      { name: 'Mededingingsrecht' },
+      { name: 'Omgevingsrecht' },
+      { name: 'Socialezekerheidsrecht' },
+      { name: 'Vreemdelingenrecht' },
+    ],
+  },
+  {
+    name: 'Civiel recht',
+    children: [
+      { name: 'Aanbestedingsrecht' },
+      { name: 'Arbeidsrecht' },
+      { name: 'Burgerlijk procesrecht' },
+      { name: 'Europees civiel recht' },
+      { name: 'Goederenrecht' },
+      { name: 'Insolventierecht' },
+      { name: 'Intellectueel-eigendomsrecht' },
+      { name: 'Internationaal privaatrecht' },
+      { name: 'Mededingingsrecht' },
+      { name: 'Ondernemingsrecht' },
+      { name: 'Personen- en familierecht' },
+      { name: 'Verbintenissenrecht' },
+    ],
+  },
+  {
+    name: 'Internationaal publiekrecht',
+    children: [{ name: 'Mensenrechten' }, { name: 'Volkenrecht' }],
+  },
+  {
+    name: 'Strafrecht',
+    children: [
+      { name: 'Europees strafrecht' },
+      { name: 'Internationaal strafrecht' },
+      { name: 'Materieel strafrecht' },
+      { name: 'Penitentiair strafrecht' },
+      { name: 'Strafprocesrecht' },
     ],
   },
 ];
