@@ -1,5 +1,5 @@
 {
-  "name": "@um-biss/legal-docs-client",
+  "name": "@biss-um/legal-docs-client",
   "version": "0.1.0",
   "description": "TypeScript client for accessing legal documents from the Case Law Explorer API",
   "main": "dist/index.js",
