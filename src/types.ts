@@ -53,11 +53,9 @@ export interface QueryParameters {
   importance?: number[]
 }
 
-export interface HierarchicalOption {
+export interface InstancesOptions {
   name: string
-  children?: HierarchicalOption[]
-  expanded?: boolean
-  selected?: boolean
+  children?: InstancesOptions[]
 }
 
 export interface SearchSubmitParams {
@@ -107,3 +105,70 @@ export interface LegalDocsClientConfig {
   timeout?: number;
   headers?: Record<string, string>;
 }
+
+/**
+ * Hierarchical structure of Dutch court instances
+ * Can be used as default options or reference
+ */
+export const DUTCH_COURT_INSTANCES: InstancesOptions[] = [
+  {
+    name: 'Hoge Raad',
+  },
+  {
+    name: 'Raad van State',
+  },
+  {
+    name: 'Centrale Raad van Beroep',
+  },
+  {
+    name: 'College van Beroep voor het bedrijfsleven',
+  },
+  {
+    name: 'Gerechtshoven',
+    children: [
+      { name: 'Gerechtshof Amsterdam' },
+      { name: 'Gerechtshof Arnhem-Leeuwarden' },
+      { name: 'Gerechtshof Den Haag' },
+      { name: "Gerechtshof 's-Hertogenbosch" },
+    ],
+  },
+  {
+    name: 'Rechtbanken',
+    children: [
+      { name: 'Rechtbank Amsterdam' },
+      { name: 'Rechtbank Den Haag' },
+      { name: 'Rechtbank Gelderland' },
+      { name: 'Rechtbank Limburg' },
+      { name: 'Rechtbank Midden-Nederland' },
+      { name: 'Rechtbank Noord-Holland' },
+      { name: 'Rechtbank Noord-Nederland' },
+      { name: 'Rechtbank Oost-Brabant' },
+      { name: 'Rechtbank Overijssel' },
+      { name: 'Rechtbank Rotterdam' },
+      { name: 'Rechtbank Zeeland-West-Brabant' },
+    ],
+  },
+  {
+    name: 'Andere instanties binnen het Koninkrijk',
+    children: [
+      { name: 'Constitutioneel Hof Sint Maarten' },
+      {
+        name: 'Gemeenschappelijk Hof van Justitie van Aruba, Curacao, Sint Maarten en van Bonaire, Sint Eustatius en Saba',
+      },
+      {
+        name: 'Gerecht in Ambtenarenzaken van Aruba, Curacao, Sint Maarten en van Bonaire, Sint Eustatius en Saba',
+      },
+      {
+        name: 'Raad van Beroep in Ambtenarenzaken van Aruba, Curaçao, Sint Maarten en van Bonaire, Sint Eustatius en Saba',
+      },
+      {
+        name: 'Raad van Beroep voor Belastingzaken van Aruba, Curaçao, Sint Maarten en van Bonaire, Sint Eustatius en Saba',
+      },
+      { name: 'Gerecht in Eerste Aanleg van Aruba' },
+      { name: 'Gerecht in eerste aanleg van Bonaire, Sint Eustatius en Saba' },
+      { name: 'Gerecht in eerste aanleg van Curaçao' },
+      { name: 'Gerecht in eerste aanleg van Sint Maarten' },
+    ],
+  },
+];
+

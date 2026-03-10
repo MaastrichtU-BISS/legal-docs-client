@@ -9,8 +9,8 @@ export type {
   FullTextDocument,
   QueryParameters,
   LawItem,
-  HierarchicalOption,
+  InstancesOptions,
   SearchSubmitParams,
 } from "./types";
 
-export { DataSource, DocType } from "./types";
+export { DataSource, DocType, DUTCH_COURT_INSTANCES } from "./types";
