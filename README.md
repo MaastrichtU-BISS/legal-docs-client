@@ -1,6 +1,6 @@
 # Legal Docs Client
 
-A TypeScript client library for accessing legal documents from the Case Law Explorer API.
+A TypeScript client library for accessing legal documents from the [Case Law Explorer API](https://api.caselawexplorer.tech/). 
 
 ## Installation
 
@@ -16,8 +16,7 @@ npm install legal-docs-client
 import { createLegalDocsClient } from 'legal-docs-client';
 
 const client = createLegalDocsClient({
-  baseURL: 'https://api.caselawexplorer.tech/api',
-  timeout: 30000,
+  // config (Optional)
 });
 ```
 
@@ -45,7 +44,7 @@ console.log(documents);
 ### Getting Full Text
 
 ```typescript
-const fullTextDocs = await client.getFullText(['ECLI:ID:1', 'ECLI:ID:2']);
+const fullTextDocs = await client.getFullText(['ECLI:NL:HR:2005:AO9006', 'ECLI:NL:RBSGR:2012:BY5532']);
 
 console.log(fullTextDocs);
 ```
