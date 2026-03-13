@@ -95,7 +95,7 @@ export interface LegalDocument {
 }
 
 export interface FullTextDocument {
-  id: string;
+  ecli: string;
   fullText: string;
 }
 

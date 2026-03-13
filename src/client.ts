@@ -1,9 +1,9 @@
-import { 
-  LegalDocument, 
-  LegalDocumentNetwork, 
-  LegalDocsClientConfig, 
+import {
+  LegalDocument,
+  LegalDocumentNetwork,
+  LegalDocsClientConfig,
   FullTextDocument,
-  QueryParameters 
+  QueryParameters,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 
@@ -29,7 +29,7 @@ export class LegalDocsClient {
 
     this.client.interceptors.request.use(
       (config) => {
-        // You can add custom logic here (e.g., logging, authentication)
+        // Authentication handling can be added here if needed
         return config;
       },
       (error) => {
@@ -64,16 +64,26 @@ export class LegalDocsClient {
   }
 
   async getFullText(eclis: string[]): Promise<FullTextDocument[]> {
+    interface APIFullTextDocument {
+      ecli: string;
+      full_text: string;
+    }
+
     try {
-      const response = await this.client.post<FullTextDocument[] | FullTextDocument>(
+      const response = await this.client.post<[] | APIFullTextDocument>(
         "/network/text",
         {
           ecli: eclis,
         },
       );
+
       // Ensure response is always an array
-      const data = Array.isArray(response.data) ? response.data : [response.data];
-      return data;
+      const data = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
+
+      // converting to camelCase and ensuring fullText is included
+      return data.map((item) => ({ ...item, fullText: item.full_text }));
     } catch (error: any) {
       throw new Error(`Failed to fetch documents: ${error.message}`);
     }
