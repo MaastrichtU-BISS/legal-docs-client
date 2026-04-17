@@ -49,6 +49,14 @@ const fullTextDocs = await client.getFullText(['ECLI:NL:HR:2005:AO9006', 'ECLI:N
 console.log(fullTextDocs);
 ```
 
+### Fetching Laws
+
+```typescript
+const laws = await client.fetchLaws('Art. 7:669 BW');
+
+console.log(laws);
+```
+
 ## License
 
 MIT
