@@ -11,6 +11,7 @@ export type {
   LawItem,
   InstancesOptions,
   SearchSubmitParams,
+  BWBItem
 } from "./types";
 
 export { DataSource, DocType, INSTANCES_OPTIONS, DOMAINS_OPTIONS } from "./types";
