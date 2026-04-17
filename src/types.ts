@@ -51,6 +51,9 @@ export interface QueryParameters {
   date_decision_start?: string
   date_decision_end?: string
   importance?: number[]
+  //Similarity search specific
+  facts?: string
+  reasoning?: string
 }
 
 export interface InstancesOptions {
