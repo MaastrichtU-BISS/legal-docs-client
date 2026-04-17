@@ -99,6 +99,13 @@ export interface FullTextDocument {
   fullText: string;
 }
 
+export interface BWBItem {
+  bwb_id: string;
+  bwb_label_id: number;
+  title: string;
+  amount_related_cases: number;
+}
+
 export interface LegalDocsClientConfig {
   baseURL?: string;
   apiKey?: string;

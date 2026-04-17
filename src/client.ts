@@ -4,6 +4,7 @@ import {
   LegalDocsClientConfig,
   FullTextDocument,
   QueryParameters,
+  BWBItem,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 
@@ -86,6 +87,15 @@ export class LegalDocsClient {
       return data.map((item) => ({ ...item, fullText: item.full_text }));
     } catch (error: any) {
       throw new Error(`Failed to fetch documents: ${error.message}`);
+    }
+  }
+
+  async fetchLaws(query: string): Promise<BWBItem[]> {
+    try {
+      const response = await this.client.get<BWBItem[]>(`/links/laws?q=${query}`);
+      return response.data;
+    } catch (error: any) {
+      throw new Error(`Failed to fetch laws: ${error.message}`);
     }
   }
 
