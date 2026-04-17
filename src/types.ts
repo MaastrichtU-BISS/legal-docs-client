@@ -29,7 +29,7 @@ export interface QueryParameters {
   attributesToFetch?: string
   keywords?: string[]
   articles?: string
-  selectedLaws?: LawItem[]
+  selectedLaws?: string[]
   selectedLawsIntersect?: boolean
   eclis?: string[]
   instances?: string[]
