@@ -48,6 +48,10 @@ export class LegalDocsClient {
         return Promise.reject(new Error(errorMessage));
       },
     );
+
+    if (this.config.apiKey) {
+      this.setApiKey(this.config.apiKey);
+    }
   }
 
   async fetchDocuments(query: QueryParameters): Promise<LegalDocument[]> {
