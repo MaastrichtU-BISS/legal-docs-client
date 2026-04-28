@@ -16,7 +16,7 @@ npm install legal-docs-client
 import { createLegalDocsClient } from 'legal-docs-client';
 
 const client = createLegalDocsClient({
-  // config (Optional)
+  apiKey: process.env.CITATIONS_API_KEY
 });
 ```
 
@@ -56,6 +56,39 @@ const laws = await client.fetchLaws('Art. 7:669 BW');
 
 console.log(laws);
 ```
+
+## Environment Configuration
+
+This package requires an API token from the Case Law Explorer API for document requests.
+
+### Setup Instructions
+
+1. **Install dotenv** (if working in Node.js):
+```bash
+npm install dotenv
+```
+
+2. **Create a `.env` file** in your project root:
+```env
+CITATIONS_API_KEY=your_api_token_here
+```
+
+3. **Load environment variables** in your application:
+```typescript
+import 'dotenv/config';
+import { createLegalDocsClient } from 'legal-docs-client';
+
+const client = createLegalDocsClient({
+  apiKey: process.env.CITATIONS_API_KEY
+});
+```
+
+> **Note:** For Vite projects, use `import.meta.env.VITE_CITATIONS_API_KEY` instead and prefix your `.env` variable with `VITE_`.
+
+### Getting an API Token
+
+New API keys can be generated at:
+https://api.caselawexplorer.tech/login.html?next=/account.html
 
 ## License
 
